@@ -1,7 +1,7 @@
 services:
-  sofatutor-lizenz:
+  st_check:
     build: .
-    container_name: sofatutor-lizenz
+    container_name: st_check
     restart: unless-stopped
     env_file:
       - .env
