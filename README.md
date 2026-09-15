@@ -33,8 +33,8 @@ Voraussetzungen
 Installation
 ------------
 
-    git clone https://github.com/DEIN_USER/sofatutor-lizenz.git
-    cd sofatutor-lizenz
+    git clone https://github.com/Buchhems/sofatutor_check.git
+    cd sofatutor_check
     cp .env.example .env
 
 Dann .env ausfüllen (siehe unten).
@@ -80,13 +80,50 @@ Einmaliger Check (z.B. als Cron-Job):
 
     RUN_ONCE=true python main.py
 
-Docker:
+Docker
+------
 
-    docker compose up -d
+Voraussetzung: Docker mit Compose-Plugin (Docker Desktop, Docker Engine 24+).
 
-Logs anzeigen:
+### 1. .env vorbereiten
+
+Die Zugangsdaten werden nur über die `.env`-Datei übergeben
+(nie im `docker-compose.yml` fixieren – die Datei wird im Repo versioniert):
+
+    cp .env.example .env
+    # .env öffnen und BIB_NR / BIB_PASSWORT eintragen
+
+### 2. Image bauen und starten
+
+    docker compose up -d --build
+
+Das startet den Container `sofatutor-lizenz` mit `restart: unless-stopped`,
+d.h. er läuft dauerhaft im Hintergrund und startet bei Neustart / Reboot
+automatisch wieder.
+
+### 3. Logs anzeigen
 
     docker compose logs -f
+
+### 4. Status prüfen
+
+    docker compose ps
+
+### 5. Stoppen / aktualisieren
+
+    docker compose down            # stoppen
+    docker compose up -d --build   # nach einem `git pull` neu bauen + starten
+
+### Wichtige Hinweise
+
+- `RUN_ONCE` steht in `docker-compose.yml` auf `false` (Endlosschleife).
+  Für einen einmaligen Testlauf: `RUN_ONCE=true docker compose up`.
+- `CHECK_INTERVAL` kann alternativ in `.env` gesetzt werden –
+  `environment`-Einträge in der Compose-Datei haben Vorrang.
+- Die `.env` wird vom Container eingelesen, aber **nicht** im Image
+  abgelegt – so bleiben die Credentials aus dem Build/Export.
+- Der Container hat einen `HEALTHCHECK`, der alle 5 Minuten die
+  Laufzeit bestätigt (Status `healthy` in `docker compose ps`).
 
 
 Endlosschleife (Loop-Modus)
