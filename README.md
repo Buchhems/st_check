@@ -1,4 +1,4 @@
-Sofatutor-Lizenz automatisch abrufen
+Sofatutor-Lizenz automatisch eintragen
 =====================================
 
 Dieses Skript prüft automatisch, ob eine kostenlose Sofatutor-Lizenz über die eigene Bibliothek, die im Verbund von ebibliotheken-hessen.de ist, verfügbar ist, holt sie ab
