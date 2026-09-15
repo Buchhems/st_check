@@ -24,7 +24,7 @@ Voraussetzungen
 
 - Python 3.10+
 - pip (requirements.txt)
-- Bibliotheks-Ausweis der Stadtbibliothek Darmstadt
+- Bibliotheks-Ausweis einer hessischen Bibliothek
 - Optional: sofatutor.com Account (für automatische Freischaltung)
 - Optional: SMTP-Zugang (für E-Mail-Benachrichtigung)
 
