@@ -32,8 +32,8 @@ Voraussetzungen
 Installation
 ------------
 
-    git clone https://github.com/Buchhems/sofatutor_check.git
-    cd sofatutor_check
+    git clone https://github.com/Buchhems/st_check.git
+    cd st_check
     cp .env.example .env
 
 Dann .env ausfüllen (siehe unten).
@@ -96,7 +96,7 @@ Die Zugangsdaten werden nur über die `.env`-Datei übergeben
 
     docker compose up -d --build
 
-Das startet den Container `sofatutor-lizenz` mit `restart: unless-stopped`,
+Das startet den Container `st-check` mit `restart: unless-stopped`,
 d.h. er läuft dauerhaft im Hintergrund und startet bei Neustart / Reboot
 automatisch wieder.
 
