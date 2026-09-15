@@ -16,5 +16,7 @@ HEALTHCHECK --interval=5m --timeout=5s --retries=2 \
 
 # RUN_ONCE und CHECK_INTERVAL werden per ENV gesetzt
 ENV RUN_ONCE=false CHECK_INTERVAL=60
+# stdout unbuffered, damit Logs sofort in `docker compose logs` erscheinen
+ENV PYTHONUNBUFFERED=1
 
 CMD ["python", "main.py"]
