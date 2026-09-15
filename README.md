@@ -1,8 +1,7 @@
 Sofatutor-Lizenz automatisch abrufen
 =====================================
 
-Dieses Skript prüft automatisch, ob eine kostenlose Sofatutor-Lizenz über die
-Stadtbibliothek Darmstadt (ebibliotheken-hessen.de) verfügbar ist, holt sie ab
+Dieses Skript prüft automatisch, ob eine kostenlose Sofatutor-Lizenz über die eigene Bibliothek, die im Verbund von ebibliotheken-hessen.de ist, verfügbar ist, holt sie ab
 und aktiviert sie optional direkt auf sofatutor.com.
 
 
