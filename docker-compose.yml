@@ -1,0 +1,16 @@
+services:
+  sofatutor-lizenz:
+    build: .
+    container_name: sofatutor-lizenz
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - BIB_LIBRARY_ID=${BIB_LIBRARY_ID:-9}
+      - CHECK_INTERVAL=${CHECK_INTERVAL:-60}
+      - RUN_ONCE=${RUN_ONCE:-false}
+    logging:
+      driver: json-file
+      options:
+        max-size: "1m"
+        max-file: "3"

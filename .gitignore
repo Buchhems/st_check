@@ -1,0 +1,5 @@
+.env
+dump_*.html
+__pycache__/
+*.pyc
+.docker/
